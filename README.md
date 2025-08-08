@@ -1,61 +1,70 @@
-Logistic Regression Binary Classifier
+# **Logistic Regression Binary Classifier**
 
-Overview
+## **Overview**
 
-This project demonstrates a binary classification model using Logistic Regression on a marketing dataset. The goal is to predict whether a customer is likely to buy a particular category of book (e.g., Italian Cookbooks) based on demographic and transactional data.
+This project demonstrates a **binary classification model** using **Logistic Regression** on a marketing dataset. The goal is to predict whether a customer is likely to buy a particular category of book (e.g., *Italian Cookbooks*) based on demographic and transactional data.
 
-Dataset
+## **Dataset**
 
-Rows: 4000 samples
+* **Rows**: 4000 samples
+* **Features include**:
 
-Features include:
+  * **Demographics** (e.g., *Gender*, *First Purchase*)
+  * **Book category purchases** (e.g., *ChildBks*, *CookBks*, *ItalCook*)
+  * **RFM metrics** (*Recency*, *Frequency*, *Monetary*)
 
-Demographics (e.g., Gender, First Purchase)
+## **Target Variable**
 
-Book category purchases (e.g., ChildBks, CookBks, ItalCook)
+* **`target`**: Binary column indicating whether the user purchased *Italian cookbooks* (`1`) or not (`0`), derived from the `ItalCook` column.
 
-RFM metrics (Recency, Frequency, Monetary)
+## **Steps Implemented**
 
-Target Variable
+1. **Data Preprocessing**
 
-target: Binary column indicating whether the user purchased Italian cookbooks (1) or not (0), derived from the ItalCook column.
+   * Dropped non-informative columns (`ID#`, `Seq#`)
+   * Converted the target variable
+   * Standardized feature values using `StandardScaler`
 
-Steps Implemented
+2. **Train/Test Split**
 
-Data Preprocessing
+   * 80% training, 20% testing
 
-Dropped non-informative columns (ID#, Seq#)
+3. **Model Training**
 
-Converted the target variable
+   * Used `LogisticRegression` from `sklearn`
 
-Standardized feature values using StandardScaler
+4. **Evaluation Metrics**
 
-Train/Test Split
+   * **Confusion Matrix**
+   * **Precision**, **Recall**, **F1-Score**
+   * **ROC-AUC Score** and **ROC Curve**
 
-80% training, 20% testing
+5. **Threshold Tuning**
 
-Model Training
+   * Adjusted the classification **threshold** to balance precision and recall
+   * Visualized **Precision-Recall vs Threshold**
 
-Used LogisticRegression from sklearn
+## **Sigmoid Function**
 
-Evaluation Metrics
+Logistic regression uses the **sigmoid function** to convert linear outputs into probabilities:
 
-Confusion Matrix
+$$
+\sigma(z) = \frac{1}{1 + e^{-z}} 
+$$
 
-Precision, Recall, F1-Score
+This enables **probabilistic interpretation** and **threshold-based classification**.
 
-ROC-AUC Score and ROC Curve
+## **Requirements**
 
-Threshold Tuning
+* **Python** 3.8+
+* `pandas`
+* `scikit-learn`
+* `matplotlib`
 
-Adjusted the classification threshold to balance precision and recall
+## **Usage**
 
-Visualized Precision-Recall vs Threshold
+1. Load and preprocess the data.
+2. Train logistic regression model.
+3. Evaluate with default and custom thresholds.
+4. Visualize performance metrics.
 
-Sigmoid Function
-
-Logistic regression uses the sigmoid function to convert linear outputs into probabilities:
-
-
-
-This enables probabilistic interpretation and threshold-based classification.
